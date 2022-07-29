@@ -1,19 +1,23 @@
 import './App.css';
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
-  Link
 } from "react-router-dom";
 import Navbar from './components/Navbar';
+import Home from './components/Home';
+import About from './components/About';
 
 function App() {
   return (
     <>
+    <Router>
     <Navbar/>
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+      <Routes>
+        <Route exact path="/" element={<Home/>}></Route>
+        <Route exact path="/about" element={<About/>}></Route>
+      </Routes>
+    </Router>
     </>
   );
 }
