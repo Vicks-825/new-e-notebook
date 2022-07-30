@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const host = 'http://localhost:5000';
@@ -29,9 +29,16 @@ const Login = () => {
     const handleChange = (e) =>{
         setCredential({...credential, [e.target.name]: e.target.value});
     }
+    const handleClick = () =>{
+      navigate("/signup", { replace: true });
+    }
   return (
+    <>
+    <div className="heading flex justify-center mt-10">
+        <h2 className="heading text-3xl">LogIn to use E-Notebook</h2>
+    </div>
     <div className='flex justify-center mt-10'>
-        <div className="block p-6 rounded-lg shadow-lg bg-white w-96">
+        <div className="block p-6 rounded-lg shadow-lg bg-gray-100 w-96">
         <form onSubmit={handleSubmit}>
             <div className="form-group mb-6">
             <label htmlFor="exampleInputEmail2" className="form-label inline-block mb-2 text-gray-700">Email address</label>
@@ -51,12 +58,13 @@ const Login = () => {
                 password?</a>
             </div>
             <button type="submit" className=" w-full px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Sign in</button>
-            <p className="text-gray-800 mt-6 text-center">Not a member? <a href="#!"
-                className="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out">Register</a>
+            <p className="text-gray-800 mt-6 text-center">Not a member? <button
+                className="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out" onClick={handleClick}>Register</button>
             </p>
         </form>
         </div>
     </div>
+    </>
   )
 }
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
     const host = 'http://localhost:5000';
@@ -31,8 +31,12 @@ const Signup = () => {
         setCredential({...credential, [e.target.name]: e.target.value});
     }
   return (
+    <>
+    <div className="heading flex justify-center mt-10">
+        <h2 className="heading text-3xl">Create an Account to use E-Notebook</h2>
+    </div>
     <div className='flex justify-center mt-10'>
-        <div className="block p-6 rounded-lg shadow-lg bg-white w-96">
+        <div className="block p-6 rounded-lg shadow-lg bg-gray-100 w-96">
         <form onSubmit={handleSubmit}>
             <div className="form-group mb-6">
             <label htmlFor="exampleInputName2" className="form-label inline-block mb-2 text-gray-700">Name</label>
@@ -54,6 +58,7 @@ const Signup = () => {
         </form>
         </div>
     </div>
+    </>
   )
 }
 
