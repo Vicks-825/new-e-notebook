@@ -16,7 +16,7 @@ const Notes = () => {
     const refClose = useRef(null);
     const updateNote = (currentNote) =>{
         ref.current.click();
-        setNote({id:currentNote._id, etitle: currentNote.title, edescription: currentNote.description, edetails: currentNote.tag});
+        setNote({id:currentNote._id, etitle: currentNote.title, edescription: currentNote.description, edetails: currentNote.details});
     }
     const handleClick = (e) =>{
         setShowModal(false);
@@ -53,13 +53,13 @@ const Notes = () => {
                 <label htmlFor="exampleText0" className="form-label inline-block mb-2 text-gray-700">
                     Description
                 </label>
-                <input value={note.edescription} type="text" id='edescription' name='edescription' className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-gray-100 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-gray-100 focus:border-blue-600 focus:outline-none" placeholder="edescription" onChange={handleChange}/>
+                <input value={note.edescription} type="text" id='edescription' name='edescription' className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-gray-100 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-gray-100 focus:border-blue-600 focus:outline-none" placeholder="edescription" onChange={handleChange} minLength={5} required/>
                 </div>
                 <div className="edetails">
                 <label htmlFor="exampleText0" className="form-label inline-block mb-2 text-gray-700">
                     Details
                 </label>
-                <input value={note.edetails} type="text" id='edetails' name='edetails' className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-gray-100 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-gray-100 focus:border-blue-600 focus:outline-none" placeholder="edetails" onChange={handleChange}/>
+                <input value={note.edetails} type="text" id='edetails' name='edetails' className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-gray-100 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-gray-100 focus:border-blue-600 focus:outline-none" placeholder="edetails" onChange={handleChange} minLength={5} required/>
                 </div>
                 </form>
                 </div>
@@ -68,7 +68,7 @@ const Notes = () => {
                   <button ref={refClose} className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" onClick={() => setShowModal(false)}>
                     Cancel
                   </button>
-                  <button className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" onClick={handleClick}>
+                  <button disabled={note.etitle.length < 5 || note.edescription.length<5} className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" onClick={handleClick}>
                     Update Note
                   </button>
                 </div>
@@ -81,6 +81,9 @@ const Notes = () => {
 
     <div className='flex flex-col'>
       <h1 className='text-2xl p-2'>Your Note</h1>
+      <div className='p-2'>
+        {notes.length === 0 && "You don't have any notes"} 
+      </div>
       <div className='grid grid-cols-1 sm:grid-cols-4 gap-3 p-2'>
         {notes.map((note) =>{
           return <Noteitem key={note._id} updateNote={updateNote} note={note}/>;
