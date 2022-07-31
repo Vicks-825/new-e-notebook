@@ -8,7 +8,7 @@ const Noteitem = (props) => {
     const ref = useRef(null);
     const [showModal, setShowModal] = useState(false);
 
-    const handleClick = (currentNote) =>{
+    const handleClick = () =>{
       ref.current.click();
   }
 

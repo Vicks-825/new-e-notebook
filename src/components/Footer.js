@@ -52,7 +52,7 @@ const Footer = () => {
         </div>
     </div>
     <div className="text-center p-4 bg-gray-200">
-        <span>© 2021 Copyright:</span>
+        <span>© 2022 Copyright:</span>
         <span className="text-gray-600 font-semibold ml-2">E-Notebook</span>
     </div>
     </footer>
