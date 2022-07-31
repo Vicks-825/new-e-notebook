@@ -21,7 +21,7 @@ const Signup = () => {
           if(json.success){
             //save the auth token and redirect
             localStorage.setItem('token', json.authToken);
-            Navigate("/", { replace: true });
+            Navigate("/home", { replace: true });
           }
           else{
             alert("Internal server error");

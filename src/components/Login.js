@@ -20,7 +20,7 @@ const Login = () => {
           if(json.success){
             //save the auth token and redirect
             localStorage.setItem('token', json.authToken);
-            navigate("/", { replace: true });
+            navigate("/home", { replace: true });
           }
           else{
             alert("Invalid credentials");

@@ -17,10 +17,10 @@ const Navbar = () => {
     <Link className="text-xl text-black" to="/">E-Notebook</Link>
     <ul className="navbar-nav flex flex-row space-x-4 pl-0 list-style-none mr-auto">
       <li className="nav-item px-2">
-        <Link className="nav-link active text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" aria-current="page" to="/">Home</Link>
+        <Link className="nav-link active text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" aria-current="page" to="/home">Home</Link>
       </li>
       <li className="nav-item pr-2">
-        <Link className="nav-link active text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/about">About</Link>
+        <Link className="nav-link active text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/about">About Creater</Link>
       </li>
     </ul>
     </div>
