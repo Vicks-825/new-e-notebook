@@ -10,6 +10,7 @@ import About from './components/About';
 import NoteState from './context/notes/NoteState';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route exact path="/signup" element={<Signup/>}></Route>
       </Routes>
     </div>
+    <Footer/>
     </Router>
     </NoteState>
     </>

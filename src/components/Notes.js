@@ -88,7 +88,7 @@ const Notes = () => {
       ) : null}
 
     <div className='flex flex-col'>
-      <h1 className='text-2xl p-2'>Your Note</h1>
+      <h1 className='text-2xl p-2'>Your Notes</h1>
       <div className='p-2'>
         {notes.length === 0 && "You don't have any notes"} 
       </div>
