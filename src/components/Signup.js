@@ -2,13 +2,12 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
-    const host = 'https://my-online-e-notebook.herokuapp.com';
     const [credential, setCredential] = useState({name: "", email: "", password: "", cpassword: ""});
     let Navigate = useNavigate();
     const handleSubmit = async(e)=>{
         e.preventDefault();
         const {name, email, password} = credential;
-        const response = await fetch(`${host}/api/auth/createuser`, {
+        const response = await fetch(`/api/auth/createuser`, {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
             headers: {
               'Content-Type': 'application/json'
