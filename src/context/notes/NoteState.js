@@ -2,13 +2,12 @@ import NoteContext from "./NoteContext";
 import { useState } from "react";
 
 const NoteState = (props) => {
-    const host = 'https://my-online-e-notebook.herokuapp.com';
     const notesInitial = [];
     const [notes, setNotes] = useState(notesInitial);
     //Fetch all notes
     const getNotes = async() =>{
         //API call
-        const response = await fetch(`${host}/api/notes/fetchallnotes`, {
+        const response = await fetch(`/api/notes/fetchallnotes`, {
             method: 'GET', // *GET, POST, PUT, DELETE, etc.
             headers: {
               'Content-Type': 'application/json',
@@ -23,7 +22,7 @@ const NoteState = (props) => {
     //Add a note
     const addNote = async(title, description, details) =>{
         //API call
-        const response = await fetch(`${host}/api/notes/addnote`, {
+        const response = await fetch(`/api/notes/addnote`, {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
             headers: {
               'Content-Type': 'application/json',
@@ -38,7 +37,7 @@ const NoteState = (props) => {
     //Edit a note
     const editNote = async(id, title, description, details) =>{
         //API call
-        const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
+        const response = await fetch(`/api/notes/updatenote/${id}`, {
             method: 'PUT', // *GET, POST, PUT, DELETE, etc.
             headers: {
               'Content-Type': 'application/json',
@@ -67,7 +66,7 @@ const NoteState = (props) => {
     //delete a note
     const deleteNote = async(id) =>{
         //API call
-        const response = await fetch(`${host}/api/notes/deletenote/${id}`, {
+        const response = await fetch(`/api/notes/deletenote/${id}`, {
             method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
             headers: {
               'Content-Type': 'application/json',
